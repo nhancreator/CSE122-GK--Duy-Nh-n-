@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Hóa Đơn | InvoicePilot Cyber Accounting</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!-- CSS File -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar điều hướng -->
+        <aside class="sidebar" aria-label="Điều hướng hệ thống">
+            <div class="sidebar-header">
+                <i class='bx bx-hexagon' style="color: var(--primary-color); font-size: 1.5rem;" aria-hidden="true"></i> 
+                <span>InvoicePilot</span>
+            </div>
+            
+            <div class="nav-group-title" id="nav-accounting-title">ACCOUNTING WORKSPACE</div>
+            
+            <nav class="sidebar-nav" aria-labelledby="nav-accounting-title">
+                <a href="index.html" class="nav-link active" aria-current="page">
+                    <i class='bx bx-file' aria-hidden="true"></i> <span>Quản lý Hóa đơn</span>
+                </a>
+            </nav>
+
+            <!-- User Badge & Nút về Trang chủ -->
+            <div style="margin-top: auto; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 32px; height: 32px; background: #10b981; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;" aria-hidden="true">KT</div>
+                    <div>
+                        <div style="font-size: 0.85rem; font-weight: 600; color: #ffffff;">Đỗ Duy Nhân</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Kế toán viên (KT)</div>
+                    </div>
+                </div>
+                <a href="#" title="Trang chủ Giữa kỳ" style="color: var(--primary-color); display: flex; align-items: center; justify-content: center; padding: 6px; border-radius: 6px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); text-decoration: none;">
+                    <i class='bx bx-home-alt' style="font-size: 1.2rem;"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Header Page -->
+            <header class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-color); letter-spacing: 1px; margin-bottom: 4px; font-weight: 600;">GIỮA KỲ CSE122 / ACCOUNTING WORKSPACE</div>
+                    <h1 style="font-size: 1.8rem; margin: 0; font-weight: 700; letter-spacing: -0.5px;">Danh Sách Hóa Đơn Doanh Nghiệp</h1>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary); text-align: right; max-width: 320px;">
+                    Hệ thống quản lý, lọc và tra cứu hóa đơn công nợ thời gian thực.
+                </div>
+            </header>
+
+            <!-- Khung trình duyệt giả lập (Cyber Bar) -->
+            <div class="browser-header-bar" aria-hidden="true">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <div class="browser-url">app.invoicepilot.vn/accounting/invoice-list</div>
+                <div style="font-size: 0.75rem; color: var(--success-color); letter-spacing: 1px; font-weight: 600;">SECURE WORKSPACE</div>
+            </div>
+
+            <!-- Main Interactive Card -->
+            <main id="main-content" class="card">
+                <!-- Toolbar: Bộ lọc Trạng thái & Tìm kiếm -->
+                <section class="toolbar-section" aria-label="Bộ lọc và tìm kiếm hóa đơn" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                    <!-- Filter Status Tabs -->
+                    <div class="filter-group" id="statusFilterGroup" role="tablist" aria-label="Lọc trạng thái hóa đơn" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="btn btn-primary filter-btn active" role="tab" aria-selected="true" data-status="all" style="padding: 8px 16px; font-size: 0.85rem;">
+                            Tất cả trạng thái <span class="badge-count" id="count-all">(0)</span>
+                        </button>
+                        <button class="btn btn-outline filter-btn" role="tab" aria-selected="false" data-status="paid" style="padding: 8px 16px; font-size: 0.85rem;">
+                            Đã thanh toán <span class="badge-count" id="count-paid">(0)</span>
+                        </button>
+                        <button class="btn btn-outline filter-btn" role="tab" aria-selected="false" data-status="pending" style="padding: 8px 16px; font-size: 0.85rem;">
+                            Đang chờ <span class="badge-count" id="count-pending">(0)</span>
+                        </button>
+                        <button class="btn btn-outline filter-btn" data-status="overdue" role="tab" aria-selected="false" style="padding: 8px 16px; font-size: 0.85rem;">
+                            Quá hạn <span class="badge-count" id="count-overdue">(0)</span>
+                        </button>
+                    </div>
+
+                    <!-- Search Input Form -->
+                    <form class="search-box" id="searchForm" role="search" style="display: flex; gap: 8px; flex-grow: 1; max-width: 360px;" onsubmit="event.preventDefault();">
+                        <label for="searchInput" class="sr-only">Tìm kiếm theo mã hóa đơn hoặc tên khách hàng</label>
+                        <div style="position: relative; width: 100%;">
+                            <input type="search" id="searchInput" class="btn-outline" placeholder="Tìm mã HĐ hoặc khách hàng..." aria-label="Tìm theo mã HĐ hoặc khách hàng" style="padding: 8px 14px 8px 36px; border-radius: 8px; color: #fff; width: 100%; font-size: 0.85rem; border: 1px solid var(--border-color);">
+                            <i class='bx bx-search' style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-secondary);" aria-hidden="true"></i>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Live Data Table Container -->
+                <div class="table-responsive" style="min-height: 280px; position: relative;">
+                    <table class="data-table" id="invoiceTable" aria-label="Bảng danh sách hóa đơn kế toán">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mã HĐ</th>
+                                <th scope="col">Khách Hàng</th>
+                                <th scope="col">Ngày Phát Hành</th>
+                                <th scope="col">Hạn Thanh Toán</th>
+                                <th scope="col" style="text-align: right;">Số Tiền (VNĐ)</th>
+                                <th scope="col">Trạng Thái</th>
+                                <th scope="col" style="text-align: center;">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceTableBody">
+                            <!-- Dữ liệu render động bằng JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Footer Phân trang & Thông số -->
+                <footer class="table-footer" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 12px;">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);" id="tableSummaryInfo">
+                        Hiển thị <span id="showingCount" style="color: #fff; font-weight: 600;">0</span> / <span id="totalCount" style="color: #fff; font-weight: 600;">0</span> hóa đơn
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" aria-live="polite" aria-atomic="true" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 8px;"></div>
+
+    <!-- Script độc lập cho bài giữa kỳ -->
+    <script src="js/main.js"></script>
+</body>
+</html>
