@@ -24,5 +24,5 @@ Trang **Quản lý Danh sách Hóa đơn** giúp nhân viên kế toán theo dõ
 
 ## 4. Các liên kết quan trọng (Bắt buộc)
 - **Link Figma:** (https://www.figma.com/make/SOZDA7tWmPkvGa96LsNN5M/Combine-into-one-post?t=RQjs99VFywVA0fZp-20&fullscreen=1)
-- **Link Video Trình bày (YouTube):** [Dán link video khoảng 3 phút vào đây]
+- **Link Video Trình bày (YouTube):** (https://youtu.be/NyPh7a-_bdw)
 - **Link GitHub Repository:** https://github.com/nhancreator/CSE122-GK--Duy-Nh-n-.git
