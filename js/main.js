@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const DEFAULT_INVOICES = [
         { id: 'INV-001', customerName: 'Công ty Cổ phần Alpha', amount: 15000000, issueDate: '2026-09-01', dueDate: '2026-09-30', status: 'pending' },
         { id: 'INV-002', customerName: 'Cửa hàng Tiện lợi Beta', amount: 8500000, issueDate: '2026-09-05', dueDate: '2026-09-20', status: 'paid' },
-        { id: 'INV-003', customerName: 'Tập đoàn Công nghệ X', amount: 30000000, issueDate: '2026-09-15', dueDate: '2026-09-30', status: 'overdue' },
-        { id: 'INV-004', customerName: 'Doanh nghiệp Tư nhân Gamma', amount: 12400000, issueDate: '2026-09-18', dueDate: '2026-10-05', status: 'pending' },
-        { id: 'INV-005', customerName: 'Chuỗi Siêu thị Delta', amount: 24500000, issueDate: '2026-08-10', dueDate: '2026-08-25', status: 'paid' }
+        { id: 'INV-003', customerName: 'Tập đoàn chăn nuôi đa quốc gia M', amount: 2000000000000, issueDate: '2026-09-15', dueDate: '2026-09-30', status: 'overdue' },
+        { id: 'INV-004', customerName: 'Doanh nghiệp Tư nhân Gamma', amount: 12400000, issueDate: '2026-09-18', dueDate: '2026-11-05', status: 'pending' },
+        { id: 'INV-005', customerName: 'Nguyên', amount: 999999999999, issueDate: '2026-08-10', dueDate: '2026-10-25', status: 'paid' }
     ];
 
     function getInvoices() {
